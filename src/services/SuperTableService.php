@@ -880,6 +880,7 @@ class SuperTableService extends Component
         $elementsService = Craft::$app->getElements();
         /** @var SuperTableBlockQuery $query */
         $query = $source->getFieldValue($field->handle);
+        $query->clearCachedResult();
         /** @var SuperTableBlockElement[] $blocks */
         if (($blocks = $query->getCachedResult()) === null) {
             $blocksQuery = clone $query;
